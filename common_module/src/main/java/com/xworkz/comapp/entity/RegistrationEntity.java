@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "project_table")
+@Table(name = "Endgame21v02")
 @NamedQueries({ @NamedQuery(name = "getByEmailId", query = "from RegistrationEntity as ed where ed.emailId=:email") })
 public class RegistrationEntity {
 

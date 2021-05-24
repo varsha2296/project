@@ -1,26 +1,17 @@
 package com.xworkz.comapp.utility;
 
-import java.util.Properties;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JavaMailSender {
 
-	public static void main(String[] args) {
-		JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
-		mailSenderImpl.setHost("smtp.gmail.com");
-		mailSenderImpl.setPort(587);
-		mailSenderImpl.setUsername("varsha.xworkz@gmail.com");
-		mailSenderImpl.setPassword("");
+	@Autowired
+	JavaMailSenderImpl mailSenderImpl;
 
-		Properties javaMailProperties = new Properties();
-		javaMailProperties.put("mail.smtp.starttls.enable", "true");
-		javaMailProperties.put("mail.smtp.auth", "true");
-		javaMailProperties.put("mail.transport.protocol", "smtp");
-		javaMailProperties.put("mail.debug", "true");
-
-		mailSenderImpl.setJavaMailProperties(javaMailProperties);
+	public void sendMail() {
 
 		String[] bccs = { "sushma.nimbal98@gmail.com", "surakshita.xworkz@gmail.com" };
 		SimpleMailMessage message = new SimpleMailMessage();
